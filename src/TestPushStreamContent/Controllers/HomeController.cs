@@ -24,7 +24,7 @@ namespace TestPushStreamContent.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("api/eventstream")]
-        public async Task GetEventStream()
+        public Task GetEventStream()
         {
             MemoryStream ms = new MemoryStream();
             var streamWriter = new StreamWriter(ms);
@@ -36,7 +36,7 @@ namespace TestPushStreamContent.Controllers
             }, null, TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
 
             HttpContext.Response.ContentType = "text/event-stream";
-            await ms.CopyToAsync(HttpContext.Response.Body);
+            return ms.CopyToAsync(HttpContext.Response.Body);
         }
 
         /// <summary>
