@@ -1,5 +1,5 @@
 ﻿if (!!window.EventSource) {
-    var source = new EventSource('/api/eventstream_2');
+    var source = new EventSource('/api/eventstream');
     source.addEventListener('open', function (e) {
         document.body.innerHTML += 'Connection was opened<br>';
     }, false);

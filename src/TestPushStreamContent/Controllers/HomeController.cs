@@ -19,6 +19,10 @@ namespace TestPushStreamContent.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Simple example using the HttpContext.Response.Body stream in action method
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("api/eventstream")]
         public async Task GetEventStream()
         {
@@ -35,6 +39,10 @@ namespace TestPushStreamContent.Controllers
             await ms.CopyToAsync(HttpContext.Response.Body);
         }
 
+        /// <summary>
+        /// Example using the FileResultFromStream there wrap a PushStreamContent
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("api/eventstream_2")]
         public FileResultFromStream GetEventStream_usingThePushContentStream()
         {
